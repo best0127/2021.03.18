@@ -3,12 +3,25 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
+/**
+ * AES/CBC/PKCS5Padding 解密
+ */
 public class Crack {
 
     public static void main(String[] args) {
 
         //需解密字符串
-        String str = "zaLybnHFi79MIhf0H/r8pwpDUqhwYM/X0bAblqPzujqSHjQ4Lhb1RZ3Qg4WWkUb1Xc8nr3mWZODk4CH2kUG28h4cd4qdF0vhevqqUt++Hp4bWImfWIPj+0bMSZg0ePLnHtYleMoCgWZioMEEa10upnghtutMP8KGqJqKkMeOJT0SISNSDGzRKec0DIn3bBMwQzXRYHTwQCOrPfDyrXobFMTixy3pTJH20+PhRx/5cbLisaZpfcCcg5EDlqkxq3T5HHY0R/UkjcFDIkuIt2gMdMtxXV87CrHbLwv3DbgOHhPdRm8Ey8rg1XfTMGmNPMLhEsYMqIVip/j2ehtaaoUYFjpKx2YYnDQCL3qjzu4Rszrc1LVg/JfNNXIX+JBO/pAopwHEh0rkqxKoSoLDlHhUlWStX2UNxyyRkD+b+77Bbd2g3HXMy/x+Fx8CsDNbsNlWW3uoqeMID5XoCZd4lJKj6HnegLVGWtv8C+dbIV8pnNyCs4Zg6v/EPp+Xt1Jk/RQla8B0ekZHvdQK8Pmiv/xk0Q5MbnMc7adasBMr38ilNvne2usrIns4Sh1I2xh9vdF5c9xpXBmBNsNL/HWzU3fJ+miobgdUvMwk92aUpdEc+T2HAiIYG67wfO4fBU+1m9Q7cIlAhsXzuSzFqdgJBzt3UwJHQDVxOr/CgBoL1QZN3BYcPqQn3aoEw9vgVF58zQ6JgeEt31xsawyuCaTLKJ5G2PcFGrYyyv/7tesABbT2jky1YkqLLKosO3KTgFtggKtoIu8uNW9Lj8LMg6L/6/p5VQK1QvN3UGCWD2P9tYzsKceeCM2HzAHd5uCO3GX1qcLeesnmH9TDdkTmI5HyVfJ8/U4OACVCUjzi4FpCOlL1I34ant/dvfKoglT9qfKyv6gscX/fxCzdA6ffRr44yk5v2nnAHy0tLVVTxNgNkbZWPKgiPlH6aNz4fn5VEeIw4qHx";
+        String str = "KOT/DkEPNpGBaaba7S/F/4ctrqIhc+iSV2wL+uihu" +
+                "udVH1TnwDzkDeMb/ZWxtdi8CYUF7pON/7i/s1m2XkCK4Mjh/ohsT4L4nIB" +
+                "YQK2oII3Y8irhaU95zsnoEDF6eZqIQj+ueHQfzATdZ14a7cmZ/2AAg2sue4xBkO5C3OS" +
+                "V+TVIMZtN275T8VjHQSDbw6PdhaeA/Hltesj2LfvrR5XXSYCZDEm5wz0iuISSkV0UFHB9JCXjt" +
+                "94iPSx5cwe9lZ0g9Cwbe/Dypx3FYxEzzRCUgmbCbS/mdRqRFidobsmrg4WVg9mdSxDATIKrtHqfTGpG5" +
+                "Khd8rdUSyf9nypTVzPxD4EY0IIQ3Yu1pEbwiCsQcOsIDpWUATQ4/QHXtzAljkCm4wM92WoD4w51R3OvjkLLa" +
+                "HKmW//hs3uWn4NK9GbUY6m0ZydRSijLbS7u22DfiXvw0Vj88B+Zr0IH9v5g/J3uxINk0CFyapLm4hDm5tPqnUL4y+" +
+                "4vrT5TojkSfEvhY80pdlffNv+4XuXNN+grDD3Xo08lOreLdlI5wU2gTYZP8I13ng91UUZeLej2BdkNwuM50+uGSl7MCiE" +
+                "bURC06qTp6C7KcZbowGcvWtED4C1BU5qlx+zBOOeGP78ttBSaEbWwcJN8bLd5Fr73KmyddChULpNH59/9wXxoZZQpm8EWmg3Zh" +
+                "9uCVADF5rJB7sIKxfGM7WpWhWjh6W+aUTrha/QXEB3wpLSMmy6Ql5/L1fAMHV8eOSt8NeXw9f6D9VX/LvLH3vgSPOw5ENPudC0aFKxJ4TH3G" +
+                "3smcXKAPU08fyxgzNW74WN/a63mtqD5jmHHkJa/uW1BacIdWMT1lC7WrWjy7Ld5mlEKs17YXKUvh0HwM/Q=";
         //密码->uid转MD5取前16位
         String key = "98874CA86AF6E937";
         String res = null;
@@ -23,11 +36,13 @@ public class Crack {
     // 解密
     public static String Decrypt(String str, String key) {
         try {
+
             // 判断Key是否正确
             if (key == null) {
                 System.out.print("Key为空null");
                 return null;
             }
+
             // 判断Key是否为16位
             if (key.length() != 16) {
                 System.out.print("Key长度不是16位");
