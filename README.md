@@ -1,4 +1,4 @@
 # AES/CBC/PKCS5Padding
 
-密码去32位MD5前16位
+密码取32位MD5前16位
 
