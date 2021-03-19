@@ -12,7 +12,7 @@ public class Crack {
         //密码->uid转MD5取前16位
         String key = "98874CA86AF6E937";
         String res = null;
-        
+
         //获取解密结果
         res = Decrypt(str, key);
         //打印结果
